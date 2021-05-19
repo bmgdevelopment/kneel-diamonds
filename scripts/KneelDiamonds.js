@@ -1,13 +1,23 @@
+/* eslint-disable no-console */
 import { DiamondSizes } from './DiamondSizes.js';
 import { JewelryStyles } from './JewelryStyles.js';
 import { Metals } from './Metals.js';
 import { Orders } from './Orders.js';
+// import { addCustomOrder } from './database.js'; //ADDED FOR BOOK 4, CHAPTER 8
 
-document.addEventListener(
-  'click',
-  (event) => {
-  }
-);
+
+//CREATE A CLICK ON BUTTON LISTENER?
+
+
+//SO HAPPY IT WORKS!!! This was a missing piece
+// document.addEventListener('click', (clickEvent) => {
+//   const itemClicked = clickEvent.target;
+
+//   if (itemClicked.id.startsWith('order')) {
+//     console.log('The order button has been pushed');
+//     addCustomOrder();
+//   }
+// });
 
 export const KneelDiamonds = () => {
   return `
@@ -41,3 +51,13 @@ export const KneelDiamonds = () => {
     `;
 };
 
+// const buttonClick = document.querySelector('#orderButton');
+
+// buttonClick.addEventListener('click', (clickEvent) => {
+//   const itemClicked = clickEvent.target;
+
+//   if (itemClicked.id.startsWith('order')) {
+//     console.log('order button has been pushed');
+//     addCustomOrder();
+//   }
+// });

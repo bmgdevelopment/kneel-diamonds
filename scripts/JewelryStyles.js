@@ -3,8 +3,7 @@ import { getStyles, setStyle } from './database.js';
 const styles = getStyles();
 
 document.addEventListener(
-  'change',
-  (event) => {
+  'change', (event) => {
     if (event.target.name === 'style') {
       setStyle(parseInt(event.target.value));
     }

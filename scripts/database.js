@@ -31,7 +31,7 @@ const database = {
             metalId: 3,
             sizeId: 2,
             styleId: 3,
-            timestamp: 1614659931693
+            timestamp: 'Mon May 17 2021 12:34:02 GMT-0500 (Central Daylight Time)'
         }
     ],
     orderBuilder: {}
@@ -65,3 +65,30 @@ export const setSize = (id) => {
 export const setStyle = (id) => {
     database.orderBuilder.styleId = id
 }
+
+// ----
+
+export const addCustomOrder = () => { //WILL NOT RUN WITHOUT BEING INVOKED IN KNEELDIAMOND.JS
+    // Copy the current state of user choices
+    const newOrder = {...database.orderBuilder}
+
+    // Add a new primary key to the object
+    const lastIndex = database.customOrders.length - 1
+    newOrder.id = database.customOrders[lastIndex].id + 1
+
+    // Add a timestamp to the order
+    newOrder.timestamp = Date(Date.now())
+
+    // Add the new order object to custom orders state
+    database.customOrders.push(newOrder)
+
+    // Reset the temporary state for user choices
+    database.orderBuilder = {}
+
+    // Broadcast a notification that permanent state has changed
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+//.dispatchEvent : (boolean/method) EventTarget.dispatchEvent(event: Event)
+// Dispatches a synthetic event event to target and returns true if either event's cancelable attribute value is false or its preventDefault() method was not invoked, and false otherwise.
+

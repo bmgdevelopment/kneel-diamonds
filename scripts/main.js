@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import { KneelDiamonds } from './KneelDiamonds.js';
 import { addCustomOrder } from './database.js'; 
@@ -12,25 +13,39 @@ const renderAllHTML = () => {
 renderAllHTML(); //calling/invoking the function needed for initial display
 
 
-//PLACED HERE FOR BETTER FLOW
-const buttonClick = document.querySelector('#orderButton');
-
-buttonClick.addEventListener('click', (clickEvent) => {
-  const itemClicked = clickEvent.target;
-  
-  if (itemClicked.id.startsWith('order')) {
-    console.log('Order button has been pushed');
+document.addEventListener('click', e => {
+  if (e.target.id === ('orderButton')) {
+    console.log('The order button has been pushed');
     addCustomOrder();
   }
-});
-
-document.addEventListener('stateChanged', event => {
-  
-  console.log('State of data has changed. Regenerating HTML...');
-  renderAllHTML();
-  
 });
 
 //BELOW CODE LISTENS FOR STATECHANGED EVENT 
 //When it is dispatched by the database module, the main module will 
 //generate all the HTML again and display it.
+document.addEventListener('stateChanged', () => {
+  
+  console.log('State of data has changed. Regenerating HTML...');
+  renderAllHTML();
+});
+
+
+//CHECK WHY SOLUTIONS BELOW DIDN'T WORK (2 OPTIONS BELOW)
+
+// document.addEventListener('click', e => {
+//   if (e.target.id === 'orderButton') {
+//     if (document.getElementById('radio_button').checked === true) {
+//       console.log('Order button has been pushed');
+//       addCustomOrder();
+//     }
+//   }
+// });
+
+// document.addEventListener('click', e => {
+//   if (e.target.id === 'radio_button') {
+//     if (e.target.id === 'orderButton') {
+//       console.log('Order button has been pushed');
+//       addCustomOrder();
+//     }
+//   }
+// });

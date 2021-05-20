@@ -9,7 +9,14 @@ import { Orders } from './Orders.js';
 //CREATE A CLICK ON BUTTON LISTENER?
 
 
-//SO HAPPY IT WORKS!!! This was a missing piece
+//This was a missing piece (PREFERRED CODE)
+// document.addEventListener('click', e => {
+//   if (e.target.id === ('orderButton')) {
+//     console.log('The order button has been pushed');
+//     addCustomOrder();
+//   }
+// });
+
 // document.addEventListener('click', (clickEvent) => {
 //   const itemClicked = clickEvent.target;
 

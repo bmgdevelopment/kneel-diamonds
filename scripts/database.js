@@ -52,6 +52,7 @@ export const getSizes = () => {
 export const getOrders = () => {
     return database.customOrders.map(order => ({...order}))
 }
+
 //The orderBuilder needs to be an object in order to access it and assign keys via dot notation
 
 export const setMetal = (id) => {
@@ -65,13 +66,14 @@ export const setSize = (id) => {
 export const setStyle = (id) => {
     database.orderBuilder.styleId = id
 }
-
 // ----
 
 export const addCustomOrder = () => { //WILL NOT RUN WITHOUT BEING INVOKED IN KNEELDIAMOND.JS
     // Copy the current state of user choices
     const newOrder = {...database.orderBuilder}
 
+    if (newOrder.styleId && newOrder.metalId && newOrder.sizeId) { //PLACED CONDITIONAL STATMENT FOR SELECTION OF ALL CHOICES
+    
     // Add a new primary key to the object
     const lastIndex = database.customOrders.length - 1
     newOrder.id = database.customOrders[lastIndex].id + 1
@@ -87,6 +89,7 @@ export const addCustomOrder = () => { //WILL NOT RUN WITHOUT BEING INVOKED IN KN
 
     // Broadcast a notification that permanent state has changed
     document.dispatchEvent(new CustomEvent("stateChanged"))
+}
 }
 
 //.dispatchEvent : (boolean/method) EventTarget.dispatchEvent(event: Event)

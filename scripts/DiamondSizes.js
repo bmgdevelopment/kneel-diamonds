@@ -29,7 +29,7 @@ export const DiamondSizes = () => {
     //.map() iterates over the array and takes the current object at the current location and passes it as an argument to the function
     //the size.id value below is a STRING so above the reference needs to be the same
     return `<li>
-            <input type="radio" name="size" value="${size.id}" /> ${size.carets} 
+            <input id="radio_button" type="radio" name="size" value="${size.id}" /> ${size.carets} 
         </li>`;
   });
 

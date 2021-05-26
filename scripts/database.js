@@ -25,12 +25,18 @@ const database = {
         { id: 4, metal: "Platinum", price: 795.45 },
         { id: 5, metal: "Palladium", price: 1241.0 }
     ],
+    allJewelry: [
+        {id: 1, type: "Ring"},
+        {id: 2, type: "Earring"},
+        {id: 3, type: "Necklace"}
+    ],
     customOrders: [
         {
             id: 1,
             metalId: 3,
             sizeId: 2,
             styleId: 3,
+            jewelryId: 1,
             timestamp: 'Mon May 17 2021 12:34:02 GMT-0500 (Central Daylight Time)'
         }
     ],
@@ -47,6 +53,11 @@ export const getStyles = () => {
 
 export const getSizes = () => {
     return database.sizes.map(size => ({...size}))
+}
+
+//NEW
+export const getAllJewelry = () => {
+    return database.allJewelry.map(jewelry => ({...jewelry}))
 }
 
 export const getOrders = () => {
@@ -66,13 +77,17 @@ export const setSize = (id) => {
 export const setStyle = (id) => {
     database.orderBuilder.styleId = id
 }
+//NEW
+export const setJewelry = (id) => {
+    database.orderBuilder.jewelryId = id
+}
 // ----
 
 export const addCustomOrder = () => { //WILL NOT RUN WITHOUT BEING INVOKED IN KNEELDIAMOND.JS
     // Copy the current state of user choices
     const newOrder = {...database.orderBuilder}
 
-    if (newOrder.styleId && newOrder.metalId && newOrder.sizeId) { //PLACED CONDITIONAL STATMENT FOR SELECTION OF ALL CHOICES
+    if (newOrder.styleId && newOrder.metalId && newOrder.sizeId && newOrder.jewelryId) { //PLACED CONDITIONAL STATMENT FOR SELECTION OF ALL CHOICES
     
     // Add a new primary key to the object
     const lastIndex = database.customOrders.length - 1

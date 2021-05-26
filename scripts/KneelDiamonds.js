@@ -3,17 +3,20 @@ import { DiamondSizes } from './DiamondSizes.js';
 import { JewelryStyles } from './JewelryStyles.js';
 import { Metals } from './Metals.js';
 import { Orders } from './Orders.js';
+import { AllJewelry } from './AllJewelry.js';
+
+
+
 // import { addCustomOrder } from './database.js'; //ADDED FOR BOOK 4, CHAPTER 8
 
 
 //CREATE A CLICK ON BUTTON LISTENER?
 
-
-//This was a missing piece (PREFERRED CODE)
-// document.addEventListener('click', e => {
-//   if (e.target.id === ('orderButton')) {
-//     console.log('The order button has been pushed');
-//     addCustomOrder();
+//This was a missing piece (PREFERRED CODE) 
+// document.addEventListener('click', e => { 
+//   if (e.target.id === ('orderButton')) { 
+//     console.log('The order button has been pushed'); 
+//     addCustomOrder(); 
 //   }
 // });
 
@@ -43,6 +46,12 @@ export const KneelDiamonds = () => {
                 <h2>Styles</h2>
                 ${JewelryStyles()}
             </section>
+        </article>
+
+        <article>
+        <section class="jewerlySection">
+        ${AllJewelry()}  
+        </section>
         </article>
 
         <article>

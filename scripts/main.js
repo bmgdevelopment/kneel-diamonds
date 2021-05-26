@@ -13,12 +13,12 @@ const renderAllHTML = () => {
 renderAllHTML(); //calling/invoking the function needed for initial display
 
 
-document.addEventListener('click', e => {
-  if (e.target.id === ('orderButton')) {
-    console.log('The order button has been pushed');
-    addCustomOrder();
-  }
-});
+document.addEventListener('click', e => { 
+  if (e.target.id === ('orderButton')) { 
+    console.log('The order button has been pushed'); 
+    addCustomOrder(); 
+  } 
+}); 
 
 // document.addEventListener('click', e => {
 //   if (e.target.id === 'orderButton') {
